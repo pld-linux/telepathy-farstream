@@ -89,6 +89,7 @@ Wiązania Pythona do telepathy-farstream.
 %{__automake}
 %configure \
 	--enable-gtk-doc \
+	--disable-silent-rules \
 	--with-html-dir=%{_gtkdocdir}
 
 %{__make}
