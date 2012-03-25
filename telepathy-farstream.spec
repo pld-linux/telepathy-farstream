@@ -1,17 +1,18 @@
 Summary:	Telepathy client to handle media streaming channels
 Name:		telepathy-farstream
-Version:	0.2.1
+Version:	0.2.3
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://telepathy.freedesktop.org/releases/telepathy-farstream/%{name}-%{version}.tar.gz
-# Source0-md5:	409036c07dcd7d8729ff9c84366c8967
+# Source0-md5:	9a5de84f1f4bb4505cc982b4a7fea539
 URL:		http://telepathy.freedesktop.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.11
+BuildRequires:	dbus-devel >= 0.60
 BuildRequires:	dbus-glib-devel >= 0.74
 BuildRequires:	farstream-devel >= 0.1.0
-BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	glib2-devel >= 1:2.30.0
 BuildRequires:	gtk-doc >= 1.17
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -34,7 +35,7 @@ Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	dbus-glib-devel >= 0.74
 Requires:	farstream-devel >= 0.1.0
-Requires:	glib2-devel >= 1:2.16.0
+Requires:	glib2-devel >= 1:2.30.0
 Requires:	gstreamer-devel
 Requires:	telepathy-glib-devel >= 0.17.5
 
@@ -115,7 +116,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libtelepathy-farstream.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libtelepathy-farstream.so.1
+%attr(755,root,root) %ghost %{_libdir}/libtelepathy-farstream.so.2
 
 %files devel
 %defattr(644,root,root,755)
