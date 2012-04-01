@@ -1,24 +1,26 @@
 Summary:	Telepathy client to handle media streaming channels
 Name:		telepathy-farstream
-Version:	0.1.2
+Version:	0.2.3
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://telepathy.freedesktop.org/releases/telepathy-farstream/%{name}-%{version}.tar.gz
-# Source0-md5:	f858fc02e1981bb8ccd29c2bed567e50
+# Source0-md5:	9a5de84f1f4bb4505cc982b4a7fea539
 URL:		http://telepathy.freedesktop.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.11
+BuildRequires:	dbus-devel >= 0.60
 BuildRequires:	dbus-glib-devel >= 0.74
-BuildRequires:	farsight2-devel >= 0.0.29
-BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	farstream-devel >= 0.1.0
+BuildRequires:	glib2-devel >= 1:2.30.0
 BuildRequires:	gtk-doc >= 1.17
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.5
 BuildRequires:	python-gstreamer-devel >= 0.10.10
 BuildRequires:	python-pygobject-devel >= 2.12.0
-BuildRequires:	telepathy-glib-devel >= 0.13.4
+BuildRequires:	telepathy-glib-devel >= 0.17.5
+Obsoletes:	telepathy-farsight < 0.0.20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -33,10 +35,11 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki telepathy-farstrean
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	dbus-glib-devel >= 0.74
-Requires:	farsight2-devel >= 0.0.29
-Requires:	glib2-devel >= 1:2.16.0
+Requires:	farstream-devel >= 0.1.0
+Requires:	glib2-devel >= 1:2.30.0
 Requires:	gstreamer-devel
-Requires:	telepathy-glib-devel >= 0.13.4
+Requires:	telepathy-glib-devel >= 0.17.5
+Obsoletes:	telepathy-farsight-devel < 0.0.20
 
 %description devel
 Header files for telepathy-farstream library.
@@ -49,6 +52,7 @@ Summary:	Static telepathy-farstream library
 Summary(pl.UTF-8):	Statyczna biblioteka telepathy-farstream
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
+Obsoletes:	telepathy-farsight-static < 0.0.20
 
 %description static
 Static telepathy-farstream library.
@@ -61,6 +65,7 @@ Summary:	telepathy-farstream library API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki telepathy-farstream
 Group:		Documentation
 Requires:	gtk-doc-common
+Obsoletes:	telepathy-farsight-apidocs < 0.0.20
 
 %description apidocs
 telepathy-farstream library API documentation.
@@ -73,6 +78,7 @@ Summary:	telepathy-farstream Python bindings
 Summary(pl.UTF-8):	Wiązania Pythona do telepathy-farstream
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
+Obsoletes:	python-telepathy-farsight < 0.0.20
 
 %description -n python-telepathy-farstream
 telepathy-farstream Python bindings.
@@ -115,7 +121,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libtelepathy-farstream.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libtelepathy-farstream.so.0
+%attr(755,root,root) %ghost %{_libdir}/libtelepathy-farstream.so.2
 
 %files devel
 %defattr(644,root,root,755)
