@@ -1,4 +1,5 @@
 Summary:	Telepathy client to handle media streaming channels
+Summary(pl.UTF-8):	Klient Telepathy do obsługi kanałów strumieni multimedialnych
 Name:		telepathy-farstream
 Version:	0.4.0
 Release:	1
@@ -20,14 +21,24 @@ BuildRequires:	python-devel >= 2.5
 BuildRequires:	python-gstreamer-devel >= 0.10.10
 BuildRequires:	python-pygobject-devel >= 2.12.0
 BuildRequires:	telepathy-glib-devel >= 0.17.5
+Requires:	dbus-glib >= 0.74
+Requires:	dbus-libs >= 0.60
+Requires:	farstream >= 0.1.0
+Requires:	glib2 >= 1:2.30.0
 Obsoletes:	telepathy-farsight < 0.0.20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-telepathy-farstream is a Telepathy client that uses Farsight and
+telepathy-farstream is a Telepathy client that uses Farstream and
 GStreamer to handle media streaming channels. It's used as a
 background process by other Telepathy clients, rather than presenting
 any user interface of its own.
+
+%description -l pl.UTF-8
+telepathy-farstream to klient Telepathy wykorzystujący biblioteki
+Farstream oraz GStreamer do obsługi kanałów strumieni multimedialnych.
+Jest używany jako proces w tle przez innych klientów Telepathy, sam
+nie prezentuje żadnego interfejsu użytkownika.
 
 %package devel
 Summary:	Header files for telepathy-farstrean library
@@ -78,6 +89,8 @@ Summary:	telepathy-farstream Python bindings
 Summary(pl.UTF-8):	Wiązania Pythona do telepathy-farstream
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
+Requires:	python-gstreamer >= 0.10.10
+Requires:	python-pygobject >= 2.12.0
 Obsoletes:	python-telepathy-farsight < 0.0.20
 
 %description -n python-telepathy-farstream
