@@ -1,30 +1,29 @@
 Summary:	Telepathy client to handle media streaming channels
 Summary(pl.UTF-8):	Klient Telepathy do obsługi kanałów strumieni multimedialnych
 Name:		telepathy-farstream
-Version:	0.4.0
+Version:	0.6.0
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://telepathy.freedesktop.org/releases/telepathy-farstream/%{name}-%{version}.tar.gz
-# Source0-md5:	52d110f8a9f27bce0a6c2c07e18aee56
+# Source0-md5:	d154350f9f1e3bdba87617c0668481a5
 URL:		http://telepathy.freedesktop.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	dbus-devel >= 0.60
 BuildRequires:	dbus-glib-devel >= 0.74
-BuildRequires:	farstream-devel >= 0.1.0
-BuildRequires:	glib2-devel >= 1:2.30.0
+BuildRequires:	farstream-devel >= 0.2.0
+BuildRequires:	glib2-devel >= 1:2.32.0
+BuildRequires:	gobject-introspection-devel >= 1.30.0
 BuildRequires:	gtk-doc >= 1.17
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	python-devel >= 2.5
-BuildRequires:	python-gstreamer-devel >= 0.10.10
-BuildRequires:	python-pygobject-devel >= 2.12.0
-BuildRequires:	telepathy-glib-devel >= 0.17.5
+BuildRequires:	telepathy-glib-devel >= 0.19.0
 Requires:	dbus-glib >= 0.74
 Requires:	dbus-libs >= 0.60
-Requires:	farstream >= 0.1.0
-Requires:	glib2 >= 1:2.30.0
+Requires:	farstream >= 0.2.0
+Requires:	glib2 >= 1:2.32.0
+Obsoletes:	python-telepathy-farstream
 Obsoletes:	telepathy-farsight < 0.0.20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -84,21 +83,6 @@ telepathy-farstream library API documentation.
 %description apidocs -l pl.UTF-8
 Dokumentacja API biblioteki telepathy-farstream.
 
-%package -n python-telepathy-farstream
-Summary:	telepathy-farstream Python bindings
-Summary(pl.UTF-8):	Wiązania Pythona do telepathy-farstream
-Group:		Libraries/Python
-Requires:	%{name} = %{version}-%{release}
-Requires:	python-gstreamer >= 0.10.10
-Requires:	python-pygobject >= 2.12.0
-Obsoletes:	python-telepathy-farsight < 0.0.20
-
-%description -n python-telepathy-farstream
-telepathy-farstream Python bindings.
-
-%description -n python-telepathy-farstream -l pl.UTF-8
-Wiązania Pythona do telepathy-farstream.
-
 %prep
 %setup -q
 
@@ -121,8 +105,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/*.{a,la} \
-	$RPM_BUILD_ROOT%{_libdir}/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -134,13 +117,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libtelepathy-farstream.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libtelepathy-farstream.so.2
+%attr(755,root,root) %ghost %{_libdir}/libtelepathy-farstream.so.3
+%{_libdir}/girepository-1.0/TelepathyFarstream-0.6.typelib
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libtelepathy-farstream.so
 %{_includedir}/telepathy-1.0/telepathy-farstream
 %{_pkgconfigdir}/telepathy-farstream.pc
+%{_datadir}/gir-1.0/TelepathyFarstream-0.6.gir
 
 %files static
 %defattr(644,root,root,755)
@@ -149,7 +134,3 @@ rm -rf $RPM_BUILD_ROOT
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/telepathy-farstream
-
-%files -n python-telepathy-farstream
-%defattr(644,root,root,755)
-%attr(755,root,root) %{py_sitedir}/tpfarstream.so
