@@ -23,6 +23,7 @@ Requires:	dbus-glib >= 0.74
 Requires:	dbus-libs >= 0.60
 Requires:	farstream >= 0.2.0
 Requires:	glib2 >= 1:2.32.0
+Requires:	telepathy-glib >= 0.19.0
 Obsoletes:	python-telepathy-farstream
 Obsoletes:	telepathy-farsight < 0.0.20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -45,10 +46,10 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki telepathy-farstrean
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	dbus-glib-devel >= 0.74
-Requires:	farstream-devel >= 0.1.0
-Requires:	glib2-devel >= 1:2.30.0
-Requires:	gstreamer-devel
-Requires:	telepathy-glib-devel >= 0.17.5
+Requires:	farstream-devel >= 0.2.0
+Requires:	glib2-devel >= 1:2.32.0
+Requires:	gstreamer-devel >= 1.0
+Requires:	telepathy-glib-devel >= 0.19.0
 Obsoletes:	telepathy-farsight-devel < 0.0.20
 
 %description devel
