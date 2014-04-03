@@ -2,7 +2,7 @@ Summary:	Telepathy client to handle media streaming channels
 Summary(pl.UTF-8):	Klient Telepathy do obsługi kanałów strumieni multimedialnych
 Name:		telepathy-farstream
 Version:	0.6.1
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://telepathy.freedesktop.org/releases/telepathy-farstream/%{name}-%{version}.tar.gz
@@ -77,6 +77,9 @@ Summary(pl.UTF-8):	Dokumentacja API biblioteki telepathy-farstream
 Group:		Documentation
 Requires:	gtk-doc-common
 Obsoletes:	telepathy-farsight-apidocs < 0.0.20
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 telepathy-farstream library API documentation.
@@ -102,7 +105,6 @@ Dokumentacja API biblioteki telepathy-farstream.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
