@@ -1,12 +1,12 @@
 Summary:	Telepathy client to handle media streaming channels
 Summary(pl.UTF-8):	Klient Telepathy do obsługi kanałów strumieni multimedialnych
 Name:		telepathy-farstream
-Version:	0.6.1
-Release:	2
+Version:	0.6.2
+Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://telepathy.freedesktop.org/releases/telepathy-farstream/%{name}-%{version}.tar.gz
-# Source0-md5:	53e3a69bdee7b301e2fdd2f2d254e385
+# Source0-md5:	20bdc61ea3f3a01df41068006b62641b
 URL:		http://telepathy.freedesktop.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.11
