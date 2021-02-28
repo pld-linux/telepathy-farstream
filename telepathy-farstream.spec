@@ -77,9 +77,7 @@ Summary(pl.UTF-8):	Dokumentacja API biblioteki telepathy-farstream
 Group:		Documentation
 Requires:	gtk-doc-common
 Obsoletes:	telepathy-farsight-apidocs < 0.0.20
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 telepathy-farstream library API documentation.
