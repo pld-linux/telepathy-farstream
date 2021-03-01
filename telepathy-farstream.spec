@@ -5,9 +5,9 @@ Version:	0.6.2
 Release:	2
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://telepathy.freedesktop.org/releases/telepathy-farstream/%{name}-%{version}.tar.gz
+Source0:	https://telepathy.freedesktop.org/releases/telepathy-farstream/%{name}-%{version}.tar.gz
 # Source0-md5:	20bdc61ea3f3a01df41068006b62641b
-URL:		http://telepathy.freedesktop.org/
+URL:		https://telepathy.freedesktop.org/components/telepathy-farstream/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	dbus-devel >= 0.60
@@ -18,13 +18,14 @@ BuildRequires:	gobject-introspection-devel >= 1.30.0
 BuildRequires:	gtk-doc >= 1.17
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	telepathy-glib-devel >= 0.19.0
 Requires:	dbus-glib >= 0.74
 Requires:	dbus-libs >= 0.60
 Requires:	farstream >= 0.2.0
 Requires:	glib2 >= 1:2.32.0
 Requires:	telepathy-glib >= 0.19.0
-Obsoletes:	python-telepathy-farstream
+Obsoletes:	python-telepathy-farstream < 0.6.0
 Obsoletes:	telepathy-farsight < 0.0.20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
